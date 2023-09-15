@@ -30,5 +30,7 @@ run localhost for the database
 create the database
 
 python OSA_Registry\manage.py makemigrations
+
 python OSA_Registry\manage.py migrate
+
 python OSA_Registry\manage.py runserver
