@@ -1,0 +1,233 @@
+{% block content %}
+    <head>
+    <title>Cpap Einstellungen Anzeigen</title>
+    <meta charset="UTF-8">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select, p {
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 16px;
+      }
+
+      h1, h2 {
+      text-transform: uppercase;
+      font-weight: 400;
+      }
+      h2 {
+      margin: 0 0 0 8px;
+      }
+      input, select {
+      padding: 5px;
+      margin-bottom: 30px;
+               margin-left: 20%;
+      background: transparent;
+          border: 2px solid rgba(0, 0, 0, 0.19);
+          border-radius: 5px;
+      }
+      .main-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 50px;
+          margin-left: 700px;
+          margin-right: 700px;
+      background: rgba(0, 0, 0, 0.07);
+      }
+      .btn{
+           background-color: rgba(0, 0, 0, 0.32);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+      }
+
+      .btniconlöschen {
+  background-color: rgba(196, 44, 44, 0.86);
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btniconlöschen:hover {
+  background-color: RoyalBlue;
+}
+
+      .btnicon {
+  background-color: rgba(0, 0, 0, 0.32);
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btnicon:hover {
+  background-color: RoyalBlue;
+}
+      .table{
+font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+      }
+      .table td, .table th {
+  border: 1px solid #ddd;
+  padding: 15px;
+          text-align: center;
+}
+     .table tr:nth-child(odd){background-color: #f2f2f2;}
+     .table  tr:hover {background-color: #ddd;}
+    .table th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+background: #424242;
+  color: white;}
+
+       /* Add a black background color to the top navigation */
+.topnav {
+	padding: 8px 8px 8px 8px;
+	background: #424242;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: rgb(65, 118, 144)
+}
+/* Add a color to the active/current link */
+.topnav a.active {
+
+	color: #898989;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 18px;
+	text-align: left;}
+</style>
+  </head>
+    <body>
+
+<div class="topnav">
+     <a class="active" href="/">Home</a>
+{% load static %} <img src="{%static '/logo_transparent_crop.png'%}" alt="home" align="right" height="50"/>
+</div>
+       <center><h2>Liste von Cpap Einstellungen</h2></center>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search" align="left">
+
+    <center>
+        <table class="table" id="myTable">
+        <tr>
+            <th>Patient Vorname</th>
+            <th>Patient Nachname</th>
+            <th>Patient SVNR</th>
+            <th>Datum cpap</th>
+            <th>IPAP </th>
+             <th>Min EPAP </th>
+            <th>Max EPAP </th>
+            <th>Min PS </th>
+            <th>Max PS </th>
+            <th>Zielvolumen </th>
+            <th>Beatmungs Modi </th>
+            <th>Erweitert</th>
+            <th></th>
+            <th></th>
+
+    </tr>
+    {% for cpap_ein in values %}
+                {% for patient in patients %}
+            {% for a in anzahl %}
+                <tr></tr>
+                 {% if cpap_ein.PatientID == a.PatientID and patient.Version == a.total and  cpap_ein.PatientID == patient.PatientID %}
+                     <td>{{ patient.Vorname }}</td>
+                     <td>{{ patient.Nachname }}</td>
+                    <td>{{ patient.SVNummer }}</td>
+
+        <td>{{ cpap_ein.Datum_cpap }}</td>
+        <td>{{ cpap_ein.IPAP }}</td>
+         <td>{{ cpap_ein.minEPAP }}</td>
+        <td>{{ cpap_ein.maxEPAP }}</td>
+        <td>{{ cpap_ein.minPS }}</td>
+        <td>{{ cpap_ein.maxPS }}</td>
+        <td>{{ cpap_ein.Zielvolumen }}</td>
+        <td>{{ cpap_ein.BeatmungsModi }}</td>
+        <td>{{ cpap_ein.Erweitert }}</td>
+        <td><a class="btniconlöschen" href="/osa_application/cpap_einstellung/{{ cpap_ein.id }}/delete/"><i class="fa fa-trash"></i></a></td>
+        <td><a class="btnicon" href="/osa_application/cpap_einstellung/{{ cpap_ein.id }}/change/"><i class="fa fa-pencil"></i></a></td>
+    {% endif %}{% endfor %}
+        {% endfor %}
+        {% endfor %}
+    </table>
+     <div class="pagination">
+    <span class="step-links">
+        {% if values.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ values.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ values.number }} of {{ values.paginator.num_pages }}.
+        </span>
+
+        {% if values.has_next %}
+            <a href="?page={{ values.next_page_number }}">next</a>
+            <a href="?page={{ values.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+    </center>
+    </body>
+     <script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+ for (i = 1; i < tr.length; i++) {
+    // Hide the row initially.
+    tr[i].style.display = "none";
+
+    td = tr[i].getElementsByTagName("td");
+    for (var j = 0; j < td.length; j++) {
+      cell = tr[i].getElementsByTagName("td")[j];
+      if (cell) {
+        if (cell.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+          break;
+        }
+      }
+    }
+}
+}
+</script>
+{% endblock %}

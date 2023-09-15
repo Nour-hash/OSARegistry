@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+ <style>
+        html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select, p {
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 16px;
+      }
+label{
+    width: 160px;
+	height: 36px;
+	color: #232323;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 16px;
+	text-align: left;
+}
+      h1, h2 {
+          alignment: center;
+      text-transform: uppercase;
+      font-weight: 400;
+      }
+      h2 {
+      margin: 0 0 0 8px;
+      }
+      input, select {
+      padding: 10px;
+      margin-bottom: 30px;
+      background: transparent;
+          border: 1px solid rgba(0, 0, 0, 0.73);
+          border-radius: 5px;
+          width: 85%;
+	height: 38px;
+	padding: 4px 8px 4px 8px;
+	background: #ffffff;
+	color: #000000;
+	border-color: #232323;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 3px 3px 3px 3px;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 14px;
+	text-align: left;
+      }
+      .main-block {
+      height: 100%;
+      padding: 50px;
+         width:25%;
+          margin:0 auto;
+      background: rgba(0, 0, 0, 0.12);
+          background-size: auto;
+          border-radius: 10px;
+      }
+    .colums {
+      display:flex;
+      justify-content:space-between;
+      flex-direction:row;
+      flex-wrap:wrap;
+      }
+      .colums div {
+      width:48%;
+      }
+        .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
+      color:  #669999;
+      }
+         .question span {
+      margin-left: 30px;
+             width: 100%;
+      }
+      .question-answer label {
+      display: block;
+          width: 100%;
+      }
+      .item input:hover, .item select:hover, .item textarea:hover {
+      border: 1px solid transparent;
+          width: 85%;
+      box-shadow: 0 0 3px 0  #669999;
+      color: #669999;
+      }
+      .item {
+          width: 100%;
+      position: relative;
+      margin: 10px 0;
+      }
+      .item span {
+      color: red;
+      }
+      .btn{
+           background-color: rgba(0, 0, 0, 0.41);
+          border-radius: 10px;
+          border: 1px solid rgba(0, 0, 0, 0.73);
+          width: 25%;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+      }
+ /*     .btn{
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.btn:hover {background-color: #3e8e41}
+
+.btn:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+  */
+      /* Add a black background color to the top navigation */
+.topnav {
+     width: 100%;
+	padding: 8px 8px 8px 8px;
+	background: #424242;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: rgb(65, 118, 144)
+}
+/* Add a color to the active/current link */
+.topnav a.active {
+
+	color: #898989;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 18px;
+	text-align: left;}
+</style>
+<title>cpap kontrolle Bearbeiten</title>
+</head>
+</html>
+<body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<div class="topnav">
+     <a class="active" href="/">Home</a>
+{% load static %} <img src="{%static '/logo_transparent_crop.png'%}" alt="home" align="right" height="50"/>
+</div>
+<form action="/osa_application/cpap_kontrolle/{{ values.id }}/changed/">
+     {% csrf_token %}
+    <h1 align="center">cpap kontrolle Bearbeiten</h1>
+<div class="main-block">
+    <div class="colums">
+        <div class="item">
+            <label for="Patient"> Patient:<span>*</span></label>
+           <select class="PatientID" id="PatientID" name="PatientID" value="{{values.PatientID }}" >
+           <option value="no patient" >patient auswählen</option>
+               {% for patient in patients %}
+            <option
+                    {% if patient.id == values.PatientID %}selected{% endif %}
+                    value='{{patient.id}}'>Vorname: {{ patient.Vorname }} | Nachname: {{ patient.Nachname }} | ID:  {{ patient.id }}</option>
+        {% endfor %}
+           </select>
+          </div>
+          <div class="item">
+            <label for="Datum cpap"> Datum cpap:<span>*</span></label>
+            <input  type="date" placeholder="Datum cpap" name="Datum_cpap" value="{{ values.Datum_cpap}}" required/>
+          </div>
+          <div class="item">
+            <label for="Compliance cpap">Compliance cpap:<span>*</span></label>
+            <input type="number" placeholder="Compliance cpap" name="Compliance_cpap" value="{{ values.Compliance_cpap}}" required/>
+          </div>
+          <div class="item">
+            <label for="Verwendungsdauer"> Verwendungsdauer:<span>*</span></label>
+            <input  type="number" placeholder="durchschnittliche Verwendungsdauer" name="durchschnittlicheVerwendungsdauer" value="{{ values.durchschnittlicheVerwendungsdauer}}" required/>
+          </div>
+      <div class="item">
+            <label for="berücksichtigte Tage CPAP"> berücksichtigte Tage CPAP:<span>*</span></label>
+            <input type="number" placeholder="berücksichtigte Tage CPAP" name="berücksichtigteTage_CPAP" value="{{ values.berücksichtigteTage_CPAP}}" required/>
+          </div>
+ <div class="item">
+            <label for="rest AHi bei CPAP"> rest AHi bei CPAP:<span>*</span></label>
+            <input type="number" placeholder="rest AHi bei CPAP" name="restAHibei_CPAP" value="{{ values.restAHibei_CPAP}}" required/>
+          </div>
+         <div class="item">
+            <label for="lname"> nach justierung Notwendig:<span>*</span></label>
+   <select name="nachjustierungNotwendig" id="notwendig">
+       <option label="?" />
+    <option value="True">True</option>
+    <option value="False">False</option>
+     </select>
+          </div>
+<div class="item">
+            <label for="Modus wechsel Notwendig"> Modus wechsel Notwendig:<span>*</span></label>
+   <select name="ModuswechselNotwendig" id="notwendig">
+       <option label="?" />
+    <option value="True"{% if CPAP_Kontrolle.ModuswechselNotwendig == 'True' %}selected{% endif %}>True</option>
+    <option value="False"{% if CPAP_Kontrolle.ModuswechselNotwendig == 'True' %}selected{% endif %}>False</option>
+     </select>
+          </div>
+  </div>
+        <p><input type="boolean" placeholder="nach justierung Notwendig" name="nachjustierungNotwendig" value="{{ values.nachjustierungNotwendig}}"></p>
+        <p><input type="boolean" placeholder="Modus wechsel Notwendig" name="ModuswechselNotwendig" value="{{ values.ModuswechselNotwendig}}"></p>
+
+         <button class="btn" type="submit" value="Edit">Edit</button>
+  </div>
+    </form>
+<script>
+$(document).ready(function() {
+    $('.PatientID').select();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+  <!DOCTYPE html>
+<html>
+<head>
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+
+    <style> html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select, p {
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 16px;
+      }
+label{
+    width: 160px;
+	height: 36px;
+	color: #232323;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 16px;
+	text-align: left;
+}
+      h1, h2 {
+          alignment: center;
+      text-transform: uppercase;
+      font-weight: 400;
+          color: rgba(20,176,0,0.82);
+      }
+      h2 {
+      margin: 0 0 0 8px;
+      }
+      input, select {
+      padding: 5px;
+      margin-bottom: 30px;
+      background: transparent;
+          border: 1px solid rgba(0, 0, 0, 0.73);
+          border-radius: 5px;
+          width: 225px;
+	height: 38px;
+	padding: 4px 8px 4px 8px;
+	background: #ffffff;
+	color: #000000;
+	border-color: #232323;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 3px 3px 3px 3px;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 14px;
+	text-align: left;
+          size: auto;
+      }
+      .main-block {
+      height: 100%;
+      padding: 50px;
+         width:25%;
+          margin:0 auto;
+      background: rgba(0, 0, 0, 0.12);
+          background-size: auto;
+          border-radius: 10px;
+      }
+    .colums {
+      display:flex;
+      justify-content:space-between;
+      flex-direction:row;
+      flex-wrap:wrap;
+        size: auto;
+      }
+      .colums div {
+      width:48%;
+      }
+        .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
+      color:  #669999;
+      }
+         .question span {
+      margin-left: 30px;
+      }
+      .question-answer label {
+      display: block;
+      }
+      .item input:hover, .item select:hover, .item textarea:hover {
+      border: 1px solid transparent;
+      box-shadow: 0 0 3px 0  #669999;
+      color: #669999;
+      }
+      .item {
+      position: relative;
+      margin: 10px 0;
+      }
+      .item span {
+      color: red;
+      }
+      .btn{
+           background-color: rgba(0, 0, 0, 0.41);
+          border-radius: 10px;
+          border: 1px solid rgba(0, 0, 0, 0.73);
+          alignment: center;
+margin-left: 36%;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+      }
+ /*     .btn{
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.btn:hover {background-color: #3e8e41}
+
+.btn:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+  */
+      /* Add a black background color to the top navigation */
+.topnav {
+	padding: 8px 8px 8px 8px;
+	background: #424242;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: rgb(65, 118, 144)
+}
+/* Add a color to the active/current link */
+.topnav a.active {
+
+	color: #898989;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 18px;
+	text-align: left;}
+</style>
+<title>Erfolgreich hinzugefügt</title>
+</head>
+</html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+<body>
+<div class="topnav">
+     <a class="active" href="/">Home</a>
+{% load static %} <img src="{%static '/logo_transparent_crop.png'%}" alt="home" align="right" height="50"/>
+</div>
+<div class="main-block">
+    <h1 align="center">Datensatz wurde erfolgreich hinzugefügt</h1>
+    <a class="btn" href="/">HOME</a>
+</div>
+
+
+
+</body>
+</html>

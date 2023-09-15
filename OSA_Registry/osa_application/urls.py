@@ -1,0 +1,100 @@
+from django.urls import path
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from . import views
+
+urlpatterns = [
+    path('patient/add/', views.postpatient_index, name='postindexpat'),
+    path('patient/added/',views.postpatient, name='postpat'),
+    path('patient/',views.getpatient, name='getpat'),
+    path('patient/suche/', views.suchepatient, name='suchepat'),
+    path('patient/<int:id>/delete/',views.deletepatient, name='deletepat'),
+    path('patient/<int:id>/change/', views.putpatient_index, name='putindexpat'),
+    path('patient/<int:id>/changed/', views.putpatient, name='putpat'),
+    path('patient/<int:id>/medikamente/', views.getpatientmedikamente, name='getpatientmedikamente'),
+    path('patient/<int:id>/medikamente/add/', views.postpatientmedikamente_index, name='postpatientmedikamente'),
+    path('patient/<int:id>/medikamente/added/', views.postpatientmedikamente, name='postpatientmedikamente'),
+    path('patient/<int:p_id>/<int:id>/medikamente/delete/', views.deltepatientmedikamente, name='deletepatientmedikamente'),
+
+    path('medikament/upload-csv/',views.importmedikament, name="importmedikament"),
+
+    path('firma/add/', views.postfirma_index, name='postindexfirma'),
+    path('firma/added/', views.postfirma, name='postfirma'),
+    path('firma/', views.getfirma, name='getfirma'),
+    path('firma/suche/', views.suchefirma, name='suchefirma'),
+    path('firma/<int:id>/delete/', views.deletefirma, name='deletefirma'),
+    path('firma/<int:id>/change/', views.putfirma_index, name='putindexfirma'),
+    path('firma/<int:id>/changed/', views.putfirma, name='putfirma'),
+
+    path('vorscreening/add/', views.postvorscreening_index, name='postindexvorscreening'),
+    path('vorscreening/added/', views.postvorscreening, name='postvorscreening'),
+    path('vorscreening/', views.getvorscreening, name='getvorscreening'),
+    path('vorscreening/suche/', views.suchevorscreening, name='suchevor'),
+    path('vorscreening/<int:id>/delete/', views.deletevorscreening, name='deletevorscreening'),
+    path('vorscreening/<int:id>/change/', views.putvorscreening_index, name='putindexvorscreening'),
+    path('vorscreening/<int:id>/changed/', views.putvorscreening, name='putvorscreening'),
+
+    path('masken/add/', views.postmasken_index, name='postindexmasken'),
+    path('masken/added/', views.postmasken, name='postmasken'),
+    path('masken/', views.getmasken, name='getmasken'),
+    path('masken/suche/', views.sucheMasken, name='suchemask'),
+    path('masken/<int:id>/delete/', views.deletemasken, name='deletemasken'),
+    path('masken/<int:id>/change/', views.putmasken_index, name='putindexmasken'),
+    path('masken/<int:id>/changed/', views.putmasken, name='putmasken'),
+
+    path('gerät/add/', views.postgerät_index, name='postindexgerät'),
+    path('gerät/added/', views.postgerät, name='postgerät'),
+    path('gerät/', views.getgerät, name='getgerät'),
+    path('gerät/suche/', views.suchegerät, name='suchegerät'),
+    path('gerät/<int:id>/delete/', views.deletegerät, name='deletegerät'),
+    path('gerät/<int:id>/change/', views.putgerät_index, name='putindexgerät'),
+    path('gerät/<int:id>/changed/', views.putgerät, name='putgerät'),
+
+    path('schlafbetreuender_arzt/add/', views.postschlafbetreuender_arzt_index, name='postindexschlafbetreudender_arzt'),
+    path('schlafbetreuender_arzt/added/', views.postschlafbetreuender_arzt, name='postschlafbetreudender_arzt'),
+    path('schlafbetreuender_arzt/', views.getschlafbetreuender_arzt, name='getschlafbetreudender_arzt'),
+    path('schlafbetreuender_arzt/suche/', views.suchearzt, name='suchearzt'),
+    path('schlafbetreuender_arzt/<int:id>/delete/', views.deleteschlafbetreuender_arzt, name='deleteschlafbetreudender_arzt'),
+    path('schlafbetreuender_arzt/<int:id>/change/', views.putschlafbetreuender_arzt_index, name='putindexschlafbetreudender_arzt'),
+    path('schlafbetreuender_arzt/<int:id>/changed/', views.putschlafbetreudener_arzt, name='putschlafbetreudender_arzt'),
+
+    path('diagnosepsg/add/', views.postdiagnosepsg_index, name='postindexdiagnosepsg'),
+    path('diagnosepsg/added/', views.postdiagnosepsg, name='postdiagnosepsg'),
+    path('diagnosepsg/', views.getdiagnosepsg, name='getdiagnosepsg'),
+    path('diagnosepsg/suche/', views.suchediagnose, name='suchediagnose'),
+    path('diagnosepsg/<int:id>/delete/', views.deletediagnosepsg,name='deletediagnosepsg'),
+    path('diagnosepsg/<int:id>/change/', views.putdiagnosepsg_index, name='putindexdiagnosepsg'),
+    path('diagnosepsg/<int:id>/changed/', views.putdiagnosepsg,name='putdiagnosepsg'),
+
+    path('cpap_einstellung/add/', views.postcpap_einstellung_index, name='postindexcpap_einstellung'),
+    path('cpap_einstellung/added/', views.postcpap_einstellung, name='postcpap_einstellung'),
+    path('cpap_einstellung/', views.getcpap_einstellung, name='getcpap_einstellung'),
+    path('cpap_einstellung/suche/', views.suchecpap_ein, name='suchecpap_ein'),
+    path('cpap_einstellung/<int:id>/delete/', views.deletecpap_einstellung, name='deletecpap_einstellung'),
+    path('cpap_einstellung/<int:id>/change/', views.putcpap_einstellung_index, name='putindexcpap_einstellung'),
+    path('cpap_einstellung/<int:id>/changed/', views.putcpap_einstellung, name='putcpap_einstellung'),
+
+    path('cpap_kontrolle/add/', views.postcpap_kontrolle_index, name='postindexcpap_kontrolle'),
+    path('cpap_kontrolle/added/', views.postcpap_kontrolle, name='postcpap_kontrolle'),
+    path('cpap_kontrolle/', views.getcpap_kontrolle, name='getcpap_kontrolle'),
+    path('cpap_kontrolle/suche/', views.suchecpap_kon, name='suchecpap_kon'),
+    path('cpap_kontrolle/<int:id>/delete/', views.deletecpap_kontrolle, name='deletecpap_kontrolle'),
+    path('cpap_kontrolle/<int:id>/change/', views.putcpap_kontrolle_index, name='putindexcpap_kontrolle'),
+    path('cpap_kontrolle/<int:id>/changed/', views.putcpap_kontrolle, name='putcpap_kontrolle'),
+
+    path('spontanous/add/', views.postspontanous_index, name='postindexspontanous'),
+    path('spontanous/added/', views.postspontanous, name='postspontanous'),
+    path('spontanous/', views.getspontanous, name='getspontanous'),
+    path('spontanous/suche/', views.suchespontanous, name='suchespont'),
+    path('spontanous/<int:id>/delete/', views.deletespontanous, name='deletespontanous'),
+    path('spontanous/<int:id>/change/', views.putspontanous_index, name='putindexspontanous'),
+    path('spontanous/<int:id>/changed/', views.putspontanous, name='putspontanous'),
+
+    path('therapieabbruch/add/', views.posttherapieabbruch_index, name='postindextherapieabbruch'),
+    path('therapieabbruch/added/', views.posttherapieabbruch, name='posttherapieabbruch'),
+    path('therapieabbruch/', views.gettherapieabbruch, name='gettherapieabbruch'),
+    path('therapieabbruch/suche/', views.suchetherapieabbruch, name='suchetherapie'),
+    path('therapieabbruch/<int:id>/delete/', views.deletetherapieabbruch, name='deletetherapieabbruch'),
+    path('therapieabbruch/<int:id>/change/', views.puttherapieabbruch_index, name='putindextherapieabbruch'),
+    path('therapieabbruch/<int:id>/changed/', views.puttherapieabbruch, name='puttherapieabbruch')
+
+]

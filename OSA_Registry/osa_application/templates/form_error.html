@@ -1,0 +1,15 @@
+<form method="post" class="needs-validation was-validated" novalidate>
+  {% csrf_token %}
+  <h2>Inputs</h2>
+  {% for field in form %}
+      {{ field.label_tag }}
+      {{ field }}
+      {% if field.errors %}
+          {% for error in field.errors %}
+          <div class="your-css-alert-class">
+              <strong>{{ error|escape }}</strong>
+          </div>
+          {% endfor %}
+      {% endif %}
+  {% endfor %}
+</form>
