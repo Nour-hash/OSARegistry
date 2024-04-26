@@ -1,5 +1,5 @@
 # OSARegistry
-Diplomprojekt mit co contributor Dominik Nowak (https://github.com/DomiWasHere)
+Projekt mit co contributor Dominik Nowak (https://github.com/DomiWasHere)
 
 ## Aufgabenstellung: ## 
 Im Gegensatz zu anderen europäischen Ländern werden in Österreich bislang die unter Beatmungstherapie gestellten Patienten mit obstruktiver Schlafapnoe aus medizinischer Sicht nicht einheitlich erfasst. Durch den Aufbau einer sachgemäßen Datenbank, die von verschiedenen medizinischen Einrichtungen verwendet werden sollen, erhält man einen Überblick über die verwendeten Geräte und Beatmungsformen.
